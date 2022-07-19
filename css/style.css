@@ -1,0 +1,265 @@
+@charset "UTF-8";
+/* Imports */
+/* Base */
+/* Reset */
+@import url("https://fonts.googleapis.com/css2?family=Caveat&family=Playfair+Display:wght@500&family=Secular+One&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.disclaimer {
+  display: none;
+}
+
+/* Import font */
+/* Font family */
+/* Font width title */
+/* Font width paragraph */
+/* Colores */
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Secular One", sans-serif;
+  font: 400;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.h__hero {
+  font-family: "Secular One", sans-serif;
+  font: 400;
+  font-size: 60px;
+}
+
+.h__title {
+  font-family: "Secular One", sans-serif;
+  font: 400;
+  font-size: 40px;
+}
+
+.h__subt {
+  font-family: "Caveat", cursive;
+  font: "Caveat", cursive;
+  font-size: 40px;
+}
+
+.p__text {
+  font: 400;
+  font-size: 20px;
+}
+
+/* laptop large or big screens*/
+.animate__animated.animate__bounceInDown {
+  --animate-duration: 4s;
+  --animate-delay: 0.1s;
+}
+
+.rotate-scale-down {
+  -webkit-animation: rotate-scale-down 0.65s linear 2s both;
+  animation: rotate-scale-down 0.65s linear 2s both;
+} /* Sections*/
+/* Portada */
+.section__hero {
+  width: 100%;
+  height: 100vh;
+  /* vh porcentajedel tamaño de alto total */
+  background: -webkit-linear-gradient(rgba(0, 0, 0, 0.473), rgba(0, 0, 0, 0.3442)), url("../src/multimedia/images/perros/portada_entrenamiento.jpg");
+  background-position: center;
+  /* Posición en el contenedor */
+  background-repeat: no-repeat;
+  /* Para no repetir si es chica */
+  background-size: cover;
+  /* ajusta el tamaño de la imagen al contenedor */
+  background-attachment: fixed;
+  /* posiciona la imagen fija al hacer cursor */
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  /* Título de la portada */
+  /* Texto de la portada */
+  /* Botón de la portada */
+}
+.section__hero h2 {
+  font-size: 60px;
+  color: white;
+  font-weight: bold;
+}
+.section__hero p {
+  font-size: 30px;
+}
+.section__hero a {
+  background-color: #F8B400;
+  text-decoration: none;
+  color: white;
+  font-size: 30px;
+  margin-top: 30px;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.header {
+  height: 80px;
+  font-size: 20px;
+}
+.header .logo {
+  width: 50px;
+  height: 50px;
+}
+@media (min-width: 0) {
+  .header .logo {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.nav__boot {
+  background-color: #F8B400;
+}
+
+.main {
+  padding: 10px;
+  margin: 0;
+}
+@media (min-width: 0) {
+  .main {
+    padding: 0;
+  }
+}
+
+.footer__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #125B50;
+  padding: 20px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+.footer__container img {
+  width: 100px;
+  height: 100px;
+}
+@media (min-width: 0) {
+  .footer__container img {
+    width: 50px;
+    height: 50px;
+  }
+}
+.footer__container a {
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 2px black;
+}
+.footer__container .social__media img {
+  width: 50px;
+  height: 50px;
+}
+@media (min-width: 0) {
+  .footer__container .social__media img {
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+  }
+}
+
+/* Componentes */
+/* Gallery conteiner */
+.gallery-container {
+  /* habilitar nuestra grilla / grid */
+  display: grid;
+  /* columnas */
+  grid-template-columns: repeat(3, 1fr);
+  /* filas */
+  grid-auto-rows: 300px;
+  /* gap */
+  gap: 15px;
+  margin: 140px 10px 10px 10px;
+  /* Expand some pictures */
+}
+@media (min-width: 0) {
+  .gallery-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: 220px;
+  }
+}
+.gallery-container .gallery-item {
+  position: relative;
+}
+@media (min-width: 0) {
+  .gallery-container .gallery-item {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+}
+.gallery-container .gallery-item .gallery-img {
+  width: 100%;
+  height: 100%;
+  /* para que la imagen no se distorcione */
+  object-fit: cover;
+  /* shadow = sombra */
+  -webkit-box-shadow: 10px 11px 12px -8px rgba(0, 0, 0, 0.36);
+  -moz-box-shadow: 10px 11px 12px -8px rgba(0, 0, 0, 0.36);
+  box-shadow: 10px 11px 12px -8px rgba(0, 0, 0, 0.36);
+}
+.gallery-container .gallery-item .gallery-title {
+  position: absolute;
+  bottom: 0;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.656);
+  width: 100%;
+  padding: 5px 0;
+  font-weight: 200;
+  font-family: "Secular One", sans-serif;
+  font-size: 20px;
+}
+@media (min-width: 0) {
+  .gallery-container .gallery-item .gallery-title {
+    display: none;
+  }
+}
+.gallery-container .img-4 {
+  /* que ocupe dos columnas */
+  grid-column: span 2;
+}
+.gallery-container .img-5 {
+  /* que ocupe dos filas */
+  grid-row: span 2;
+}
+.gallery-container .img-9 {
+  /* que ocupe dos columnas */
+  grid-column: span 2;
+}
+
+.img__index {
+  height: auto;
+  width: 600px;
+  object-fit: cover;
+}
+@media (min-width: 0) {
+  .img__index {
+    width: 100vw;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

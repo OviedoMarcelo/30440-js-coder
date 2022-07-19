@@ -1,0 +1,10 @@
+.animate__animated.animate__bounceInDown {
+    --animate-duration: 4s;
+    --animate-delay: 0.1s;
+}
+
+.rotate-scale-down {
+    -webkit-animation: rotate-scale-down .65s linear 2s both;
+    animation: rotate-scale-down .65s linear 2s both;
+}
+

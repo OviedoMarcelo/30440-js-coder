@@ -1,0 +1,44 @@
+/* Portada */
+.section__hero {
+    width: 100%;
+    height: 100vh;
+    /* vh porcentajedel tamaño de alto total */
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.473), rgba(0, 0, 0, 0.3442)), url("../src/multimedia/images/perros/portada_entrenamiento.jpg");
+    background-position: center;
+    /* Posición en el contenedor */
+    background-repeat: no-repeat;
+    /* Para no repetir si es chica */
+    background-size: cover;
+    /* ajusta el tamaño de la imagen al contenedor */
+    background-attachment: fixed;
+    /* posiciona la imagen fija al hacer cursor */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    /* Título de la portada */
+    & h2 {
+        font-size: 60px;
+        color: white;
+        font-weight: bold;
+    }
+
+    /* Texto de la portada */
+    & p {
+        font-size: 30px;
+    }
+
+    /* Botón de la portada */
+    & a {
+        background-color: $color-orange;
+        text-decoration: none;
+        color: white;
+        font-size: 30px;
+        margin-top: 30px;
+        padding: 10px;
+        border-radius: 15px;
+    }
+
+}

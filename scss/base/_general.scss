@@ -1,0 +1,39 @@
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: $font-main;
+    font: $font-p-w;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.h__hero {
+    font-family: $font-main;
+    font: $font-title-w;
+    font-size: 60px;
+}
+
+.h__title {
+    font-family: $font-main;
+    font: $font-title-w;
+    font-size: 40px;
+}
+
+.h__subt {
+    font-family: $font-subt;
+    font: $font-subt;
+    font-size: 40px;
+}
+
+.p__text {
+    font: $font-p-w;
+    font-size: 20px;
+}

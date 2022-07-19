@@ -1,0 +1,28 @@
+/* Imports */
+/* Base */
+@import "../scss/base/reset";
+@import "../scss/base/variables";
+@import "../scss/base/general";
+@import "../scss/base/breakpoints";
+@import "../scss/base/animations";
+
+/* Sections*/
+@import "./sections/hero";
+@import "./sections/header";
+@import "./sections/main";
+@import "./sections/footer";
+
+/* Componentes */
+
+@import "./components/gallery";
+@import "./components/introduction";
+
+
+
+
+
+
+
+
+
+
