@@ -1,17 +1,18 @@
-
-.header{
+.header {
     height: 80px;
     font-size: 20px;
-    .logo{
+
+    .logo {
         width: 50px;
         height: 50px;
-        @include breakpoint (xs){
+
+        @include breakpoint (xs) {
             width: 30px;
             height: 30px;
         }
     }
 }
 
-.nav__boot{
-    background-color: $color-orange;
+.nav_site {
+    background-color: rgba(3, 54, 73, 0.644) !important;
 }
