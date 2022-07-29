@@ -48,10 +48,11 @@ do {
     /* Entro al loop hasta tener un número válido de item */
     idCompra = parseInt(prompt("👋¡Ingresa el número del item que quieras comprar:\n 1. AK \n 2.AWP \n 3.USP \n 4.M4A1 \n 5.Glock"))
     if (Number(idCompra) == idCompra && idCompra >= 1 && idCompra <= 5) {
+        //APRENDIMOS FUNCIONES MAS INTELIGENTES PARA BUSCAR PRODUCTOS SI EXISTEN (FILTER): USARLO!!!
         /* Valido que se haya ingresado un número y entre los valores del menú */
         do {
             cantidadCompra = parseInt(prompt("👋¡Ingresa ahora la cantidad que quieras comprar:"))
-            if (Number(cantidadCompra) == cantidadCompra) {
+            if (Number(cantidadCompra) == cantidadCompra) { //Y SI INGRESO UN NUMERO NEGATIVO O CERO?
                 venta(stockProductos,cantidadCompra,idCompra);
             } else {
                 alert("Ingrese un número correcto para realizar la compra")
