@@ -12,30 +12,35 @@ let stockProductos = [{
         tipo: "AK-47",
         stock: 10,
         precio: 2300,
+        imageUrl: "..\src\multimedia\images\shop\ak47-nightwish-ww.png",
     },
     {
         id: 2,
         tipo: "AWP",
         stock: 2,
         precio: 3500,
+        imageUrl: "..\src\multimedia\images\shop\awp-hyperbeast-ft.png",
     },
     {
         id: 3,
         tipo: "USP",
         stock: 5,
         precio: 1800,
+        imageUrl:"..\src\multimedia\images\shop\usps-orange-ft.png",
     },
     {
         id: 4,
         tipo: "M4A1-S",
         stock: 6,
         precio: 2500,
+        imageUrl:"..\src\multimedia\images\shop\m4a1s-printstream-ft.png" ,
     },
     {
         id: 5,
         tipo: "GLOCK",
         stock: 10,
         precio: 1000,
+        imageUrl:"..\src\multimedia\images\shop\glock-pinkddpat-ww.png",
     }
 ]
 
@@ -52,7 +57,7 @@ do {
         do {
             cantidadCompra = parseInt(prompt("👋¡Ingresa ahora la cantidad que quieras comprar:"))
             if (Number(cantidadCompra) == cantidadCompra) {
-                venta(stockProductos,cantidadCompra,idCompra);
+                venta(stockProductos, cantidadCompra, idCompra);
             } else {
                 alert("Ingrese un número correcto para realizar la compra")
             }
@@ -81,9 +86,8 @@ function controlStock(itemstock, cantidadVenta) {
 
 function venta(stockProductos, cantidadCompra, id) {
 
-    const itemVenta = stockProductos.find(itemCompra => itemCompra.id == id) 
-       /* Controlo el stock y si hay stock vendo y actualizo */
-
+    const itemVenta = stockProductos.find(itemCompra => itemCompra.id == id)
+    /* Controlo el stock y si hay stock vendo y actualizo */
     if (controlStock(itemVenta.stock, cantidadCompra)) {
         itemVenta.stock = itemVenta.stock - cantidadCompra;
         const precioFinal = cantidadCompra * itemVenta.precio;
@@ -93,3 +97,6 @@ function venta(stockProductos, cantidadCompra, id) {
         return 0;
     }
 }
+
+
+/* ---------------- Listar productos en la web--------------- */

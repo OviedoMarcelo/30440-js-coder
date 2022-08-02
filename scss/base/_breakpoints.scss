@@ -1,4 +1,4 @@
-$breakpoints: (xs: 0, /* mobile */
+$breakpoints: (xs: 0px, /* mobile */
     sm: 576px, /* tablet */
     md: 768px, /* laptop */
     lg: 992px,  /* laptop l */
@@ -6,7 +6,7 @@ $breakpoints: (xs: 0, /* mobile */
 
 @mixin breakpoint($size) {
     @if map-has-key($breakpoints, $size) {
-        @media (min-width: #{map-get($breakpoints, $size)}) {
+        @media screen and (max-width: #{map-get($breakpoints, $size)}) {
             @content;
         }
     }
