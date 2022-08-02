@@ -12,35 +12,35 @@ let stockProductos = [{
         tipo: "AK-47",
         stock: 10,
         precio: 2300,
-        imageUrl: "..\src\multimedia\images\shop\ak47-nightwish-ww.png",
+        imageUrl: "../src/multimedia/images/shop/ak47-nightwish-ww.png",
     },
     {
         id: 2,
         tipo: "AWP",
         stock: 2,
         precio: 3500,
-        imageUrl: "..\src\multimedia\images\shop\awp-hyperbeast-ft.png",
+        imageUrl: "../src/multimedia/images/shop/awp-hyperbeast-ft.png",
     },
     {
         id: 3,
         tipo: "USP",
         stock: 5,
         precio: 1800,
-        imageUrl:"..\src\multimedia\images\shop\usps-orange-ft.png",
+        imageUrl:"../src/multimedia/images/shop/usps-orange-ft.png",
     },
     {
         id: 4,
         tipo: "M4A1-S",
         stock: 6,
         precio: 2500,
-        imageUrl:"..\src\multimedia\images\shop\m4a1s-printstream-ft.png" ,
+        imageUrl:"../src/multimedia/images/shop/m4a1s-printstream-ft.png" ,
     },
     {
         id: 5,
         tipo: "GLOCK",
         stock: 10,
         precio: 1000,
-        imageUrl:"..\src\multimedia\images\shop\glock-pinkddpat-ww.png",
+        imageUrl:"../src/multimedia/images/shop/glock-pinkddpat-ww.png",
     }
 ]
 
@@ -51,13 +51,14 @@ alert("👋¡Bienvenido a nuestro sistema de venta!")
 
 do {
     /* Entro al loop hasta tener un número válido de item */
-    idCompra = parseInt(prompt("👋¡Ingresa el número del item que quieras comprar:\n 1. AK \n 2.AWP \n 3.USP \n 4.M4A1 \n 5.Glock"))
+    idCompra = parseInt(prompt("👋¡Ingresa el número del item que quieras comprar:/n 1. AK /n 2.AWP /n 3.USP /n 4.M4A1 /n 5.Glock"))
     if (Number(idCompra) == idCompra && idCompra >= 1 && idCompra <= 5) {
+        //APRENDIMOS FUNCIONES MAS INTELIGENTES PARA BUSCAR PRODUCTOS SI EXISTEN (FILTER): USARLO!!!
         /* Valido que se haya ingresado un número y entre los valores del menú */
         do {
             cantidadCompra = parseInt(prompt("👋¡Ingresa ahora la cantidad que quieras comprar:"))
-            if (Number(cantidadCompra) == cantidadCompra) {
-                venta(stockProductos, cantidadCompra, idCompra);
+            if (Number(cantidadCompra) == cantidadCompra) { //Y SI INGRESO UN NUMERO NEGATIVO O CERO?
+                venta(stockProductos,cantidadCompra,idCompra);
             } else {
                 alert("Ingrese un número correcto para realizar la compra")
             }
