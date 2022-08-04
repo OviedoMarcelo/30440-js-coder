@@ -1,5 +1,3 @@
-
-
 /* Tienda CSS  */
 
 /* Tienda conteiner */
@@ -7,5 +5,20 @@
 .tienda__conteiner {
     -webkit-border-radius: 15px;
     border-radius: 15px;
-    background-color: aqua;
+    background-color: $color-second;
+
+    .product__card {
+        &:hover {
+            -webkit-box-shadow: 5px 5px 15px 5px $color-shadow;
+            box-shadow: 5px 5px 15px 5px $color-shadow;
+        }
+    }
+}
+
+.filtros__conteiner {
+    -webkit-border-radius: 15px;
+    border-radius: 15px;
+    background-color: $color-main;
+    margin-right: 5px;
+
 }

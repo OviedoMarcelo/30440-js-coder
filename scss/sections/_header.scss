@@ -2,6 +2,25 @@
     height: 60px;
     font-size: 20px;
 
+    ul li{
+        text-align: center;
+    
+    }
+
+    a {
+        color: white;
+
+        &.active__menu {
+            background-color: $color-third;
+            color: black;
+        }
+
+        .carro__compra {
+            width: 40px;
+            height: 40px;
+        }
+    }
+
     .logo {
         width: 50px;
         height: 50px;
@@ -14,5 +33,5 @@
 }
 
 .nav_site {
-    background-color: rgba(3, 54, 73, 0.644) !important;
+    background-color: $color-main !important;
 }

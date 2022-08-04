@@ -48,16 +48,21 @@ let stockProductos = [{
 
 /* ---------------- Listar productos en la web--------------- */
 
+/* funtion renderizar */
 
-let listaProductos = document.getElementById("productos-tienda")
+function renderizar(stockProductos) {
 
-/* Renderizar */
+    /* Siempre limpio pantalla para reutilizar en los filtros */
 
-for (const prod of stockProductos) {
+    let listaProductos = document.getElementById("productos-tienda");
+    listaProductos.innerHTML = "";
 
-    let productosHTML = `
-                    <div class="col-12 col-md-4 m-5 d-flex justify-content-center">
-                        <div class="card" style="width: 18rem;">
+    /* Recorro el array de productos para mostrar */
+    for (const prod of stockProductos) {
+
+        let productosHTML = `
+                    <div class="col">
+                        <div class="card product__card" style="width: 18rem;">
                             <img src="${prod.imageUrl}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">${prod.tipo}</h5>
@@ -67,6 +72,32 @@ for (const prod of stockProductos) {
                         </div>
                     </div>
                     `
-    listaProductos.innerHTML+=productosHTML;
+        listaProductos.innerHTML += productosHTML;
+
+    }
+}
+
+/* Ejecuto render inicial de todos los productos */
+
+
+renderizar(stockProductos)
+
+function applyFilter(productType) {
+
+    let showOnlyType = stockProductos.filter(producto => producto.tipo === productType)
+    console.log(showOnlyType)
+    renderizar(showOnlyType)
 
 }
+
+
+/****************** Filtros *************************/
+
+/* Ak Filter */
+let akFilter = document.getElementById("ak-filter")
+let allFilter = document.getElementById("all-filter")
+
+akFilter.addEventListener("click", ()=>applyFilter("AK-47"))
+allFilter.addEventListener("click", ()=>renderizar(stockProductos))
+
+

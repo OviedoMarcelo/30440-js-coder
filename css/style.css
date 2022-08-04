@@ -84,12 +84,37 @@ a {
 .tienda__conteiner {
   -webkit-border-radius: 15px;
   border-radius: 15px;
-  background-color: aqua;
+  background-color: rgb(3, 54, 73);
+}
+.tienda__conteiner .product__card:hover {
+  -webkit-box-shadow: 5px 5px 15px 5px rgb(232, 221, 203);
+  box-shadow: 5px 5px 15px 5px rgb(232, 221, 203);
+}
+
+.filtros__conteiner {
+  -webkit-border-radius: 15px;
+  border-radius: 15px;
+  background-color: rgb(3, 22, 52);
+  margin-right: 5px;
 }
 
 .header {
   height: 60px;
   font-size: 20px;
+}
+.header ul li {
+  text-align: center;
+}
+.header a {
+  color: white;
+}
+.header a.active__menu {
+  background-color: rgb(205, 179, 128);
+  color: black;
+}
+.header a .carro__compra {
+  width: 40px;
+  height: 40px;
 }
 .header .logo {
   width: 50px;
@@ -103,12 +128,13 @@ a {
 }
 
 .nav_site {
-  background-color: rgba(3, 54, 73, 0.644) !important;
+  background-color: rgb(3, 22, 52) !important;
 }
 
 .main {
-  padding: 10px;
-  margin: 0;
+  padding: 10px 0px 0px 0px;
+  margin-bottom: 10px;
+  min-height: 100vh;
 }
 @media screen and (max-width: 0px) {
   .main {
@@ -119,6 +145,14 @@ a {
 .footer {
   margin-top: auto;
   text-align: center;
+  background-color: rgb(3, 54, 73);
+  max-width: a;
+  max-width-color: white;
+}
+.footer div.copyright {
+  border-top-width: 2px;
+  border-top-style: solid;
+  border-top-color: rgb(205, 179, 128);
 }
 .footer .logo {
   width: 100px;

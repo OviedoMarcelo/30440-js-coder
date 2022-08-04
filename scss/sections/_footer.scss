@@ -1,12 +1,30 @@
-.footer{
+.footer {
     margin-top: auto;
     text-align: center;
+    background-color: $color-second;
+
+    max-width: a {
+        color: white;
+    }
+
+    div {
+
+        &.copyright {
+            border-top-width: 2px;
+            border-top-style: solid;
+            border-top-color: $color-third;
+        }
+    }
+
+
     .logo {
         width: 100px;
         height: 100px;
+
         @include breakpoint (lg) {
             width: 30px;
             height: 30px;
         }
     }
+
 }
