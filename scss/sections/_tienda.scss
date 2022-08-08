@@ -7,6 +7,9 @@
     border-radius: 15px;
     background-color: $color-second;
 
+
+
+
     .product__card {
         &:hover {
             -webkit-box-shadow: 5px 5px 15px 5px $color-shadow;
@@ -15,10 +18,43 @@
     }
 }
 
+
+
 .filtros__conteiner {
     -webkit-border-radius: 15px;
+    padding: 10px;
+    width: 300px;
     border-radius: 15px;
     background-color: $color-main;
     margin-right: 5px;
 
+    li {
+        margin: 10px;
+
+        a {
+            color: $color-second;
+        }
+
+        .button__filter {
+            color: $color-shadow;
+            font-size: 13px;
+            line-height: 15px;
+            padding: 16px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-style: normal;
+            font-variant: normal;
+            text-transform: none;
+            background-color: $color-second;
+            box-shadow: rgb(0, 0, 0) 5px 5px 15px 5px;
+            border: 2px solid $color-shadow;
+            display: inline-block;
+
+            &:hover {
+                background: #1C6EA4;
+
+            }
+
+        }
+    }
 }

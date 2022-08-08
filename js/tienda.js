@@ -9,38 +9,155 @@ let seguirComprando = true;
 
 let stockProductos = [{
         id: 1,
-        tipo: "AK-47",
+        tipo: "rifle",
         stock: 10,
         precio: 2300,
         imageUrl: "../../src/multimedia/images/shop/ak47-nightwish-ww.png",
     },
     {
         id: 2,
-        tipo: "AWP",
+        tipo: "rifle",
         stock: 2,
         precio: 3500,
         imageUrl: "../../src/multimedia/images/shop/awp-hyperbeast-ft.png",
     },
     {
         id: 3,
-        tipo: "USP",
+        tipo: "pistola",
         stock: 5,
         precio: 1800,
         imageUrl: "../../src/multimedia/images/shop/usps-orange-ft.png",
     },
     {
         id: 4,
-        tipo: "M4A1-S",
+        tipo: "rifle",
         stock: 6,
         precio: 2500,
         imageUrl: "../../src/multimedia/images/shop/m4a1s-printstream-ft.png",
     },
     {
         id: 5,
-        tipo: "GLOCK",
+        tipo: "pistola",
         stock: 10,
         precio: 1000,
         imageUrl: "../../src/multimedia/images/shop/glock-pinkddpat-ww.png",
+    },
+    {
+        id: 6,
+        tipo: "rifle",
+        stock: 10,
+        precio: 2500,
+        imageUrl: "../../src/multimedia/images/shop/ak47-emerald-fn.png",
+    },
+    {
+        id: 7,
+        tipo: "rifle",
+        stock: 10,
+        precio: 3500,
+        imageUrl: "../../src/multimedia/images/shop/awp-lightning-fn.png",
+    },
+    {
+        id: 8,
+        tipo: "pistola",
+        stock: 10,
+        precio: 1500,
+        imageUrl: "../../src/multimedia/images/shop/desert-kumicho-fn.png",
+    },
+    {
+        id: 9,
+        tipo: "rifle",
+        stock: 10,
+        precio: 800,
+        imageUrl: "../../src/multimedia/images/shop/famas-commem-fn.png",
+    },
+    {
+        id: 10,
+        tipo: "pistola",
+        stock: 10,
+        precio: 1100,
+        imageUrl: "../../src/multimedia/images/shop/glock-vogue.mw_.png",
+    },
+    {
+        id: 11,
+        tipo: "cuchillo",
+        stock: 10,
+        precio: 5500,
+        imageUrl: "../../src/multimedia/images/shop/knife-bayonet-ultraviolet-ww.png",
+    },
+    {
+        id: 12,
+        tipo: "cuchillo",
+        stock: 10,
+        precio: 2500,
+        imageUrl: "../../src/multimedia/images/shop/ak47-emerald-fn.png",
+    },
+    {
+        id: 13,
+        tipo: "cuchillo",
+        stock: 10,
+        precio: 6500,
+        imageUrl: "../../src/multimedia/images/shop/knife-falchion-marble-fn.png",
+    },
+    {
+        id: 14,
+        tipo: "cuchillo",
+        stock: 10,
+        precio: 2500,
+        imageUrl: "../../src/multimedia/images/shop/knife-flip-scorched-ww.png",
+    },
+    {
+        id: 15,
+        tipo: "rifle",
+        stock: 10,
+        precio: 6400,
+        imageUrl: "../../src/multimedia/images/shop/knife-flip-ultraviolet-ww.png",
+    },
+    {
+        id: 16,
+        tipo: "cuchillo",
+        stock: 10,
+        precio: 2500,
+        imageUrl: "../../src/multimedia/images/shop/knife-flip-ultraviolet-ww.png",
+    },
+    {
+        id: 17,
+        tipo: "cuchillo",
+        stock: 10,
+        precio: 2500,
+        imageUrl: "../../src/multimedia/images/shop/knife-gut-damascus-ft.png",
+    },
+    {
+        id: 18,
+        tipo: "rifle",
+        stock: 10,
+        precio: 2500,
+        imageUrl: "../../src/multimedia/images/shop/m4a4-desolate-fn.png",
+    },
+    {
+        id: 19,
+        tipo: "smg",
+        stock: 10,
+        precio: 2500,
+        imageUrl: "../../src/multimedia/images/shop/mac10-neonrider-fn.png",
+    },
+    {
+        id: 20,
+        tipo: "smg",
+        stock: 10,
+        precio: 2500,
+        imageUrl: "../../src/multimedia/images/shop/mag7-monstercall-bs.png",
+    }, {
+        id: 21,
+        tipo: "pistola",
+        stock: 10,
+        precio: 2500,
+        imageUrl: "../../src/multimedia/images/shop/usps-guardian-fn.png",
+    }, {
+        id: 22,
+        tipo: "pistola",
+        stock: 10,
+        precio: 2500,
+        imageUrl: "../../src/multimedia/images/shop/usps-stainless-bs.png",
     }
 ]
 
@@ -94,10 +211,21 @@ function applyFilter(productType) {
 /****************** Filtros *************************/
 
 /* Ak Filter */
-let akFilter = document.getElementById("ak-filter")
+let rifleFilter = document.getElementById("rifle-filter")
+let pistolFilter = document.getElementById("pistol-filter")
+let smgFilter = document.getElementById("smg-filter")
+let knifeFilter = document.getElementById("knife-filter")
 let allFilter = document.getElementById("all-filter")
 
-akFilter.addEventListener("click", ()=>applyFilter("AK-47"))
-allFilter.addEventListener("click", ()=>renderizar(stockProductos))
+/* Assign funtion */
 
+/* Specific */
 
+rifleFilter.addEventListener("click", () => applyFilter("rifle"))
+pistolFilter.addEventListener("click", () => applyFilter("pistola"))
+smgFilter.addEventListener("click", () => applyFilter("smg"))
+knifeFilter.addEventListener("click", () => applyFilter("cuchillo"))
+
+/* All */
+
+allFilter.addEventListener("click", () => renderizar(stockProductos))

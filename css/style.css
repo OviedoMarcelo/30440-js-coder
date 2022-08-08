@@ -36,6 +36,7 @@ h4,
 h5 {
   font-family: "Secular One", sans-serif;
   font: 400;
+  font-size: 18px;
 }
 
 ul {
@@ -44,6 +45,7 @@ ul {
 
 a {
   text-decoration: none;
+  font-size: 18px;
 }
 
 .h__hero {
@@ -93,9 +95,35 @@ a {
 
 .filtros__conteiner {
   -webkit-border-radius: 15px;
+  padding: 10px;
+  width: 300px;
   border-radius: 15px;
   background-color: rgb(3, 22, 52);
   margin-right: 5px;
+}
+.filtros__conteiner li {
+  margin: 10px;
+}
+.filtros__conteiner li a {
+  color: rgb(3, 54, 73);
+}
+.filtros__conteiner li .button__filter {
+  color: rgb(232, 221, 203);
+  font-size: 13px;
+  line-height: 15px;
+  padding: 16px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: none;
+  background-color: rgb(3, 54, 73);
+  box-shadow: rgb(0, 0, 0) 5px 5px 15px 5px;
+  border: 2px solid rgb(232, 221, 203);
+  display: inline-block;
+}
+.filtros__conteiner li .button__filter:hover {
+  background: #1C6EA4;
 }
 
 .header {
@@ -146,17 +174,27 @@ a {
   margin-top: auto;
   text-align: center;
   background-color: rgb(3, 54, 73);
-  max-width: a;
-  max-width-color: white;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer a, .footer h4 {
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 2px black;
+}
+.footer li {
+  text-align: center;
 }
 .footer div.copyright {
   border-top-width: 2px;
   border-top-style: solid;
   border-top-color: rgb(205, 179, 128);
+  text-align: center;
 }
 .footer .logo {
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
 }
 @media screen and (max-width: 992px) {
   .footer .logo {
