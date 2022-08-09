@@ -12,6 +12,7 @@ let stockProductos = [{
         tipo: "rifle",
         stock: 10,
         precio: 2300,
+        descipcion: "Ak Nightwish",
         imageUrl: "../../src/multimedia/images/shop/ak47-nightwish-ww.png",
     },
     {
@@ -19,6 +20,7 @@ let stockProductos = [{
         tipo: "rifle",
         stock: 2,
         precio: 3500,
+        descipcion: "AWP Hyperbeast",
         imageUrl: "../../src/multimedia/images/shop/awp-hyperbeast-ft.png",
     },
     {
@@ -26,6 +28,7 @@ let stockProductos = [{
         tipo: "pistola",
         stock: 5,
         precio: 1800,
+        descipcion: "USP Orange",
         imageUrl: "../../src/multimedia/images/shop/usps-orange-ft.png",
     },
     {
@@ -33,6 +36,7 @@ let stockProductos = [{
         tipo: "rifle",
         stock: 6,
         precio: 2500,
+        descipcion: "M4A1-S Printstream",
         imageUrl: "../../src/multimedia/images/shop/m4a1s-printstream-ft.png",
     },
     {
@@ -40,6 +44,7 @@ let stockProductos = [{
         tipo: "pistola",
         stock: 10,
         precio: 1000,
+        descipcion: "Glock Pinkddpat",
         imageUrl: "../../src/multimedia/images/shop/glock-pinkddpat-ww.png",
     },
     {
@@ -47,6 +52,7 @@ let stockProductos = [{
         tipo: "rifle",
         stock: 10,
         precio: 2500,
+        descipcion: "AK Emerald",
         imageUrl: "../../src/multimedia/images/shop/ak47-emerald-fn.png",
     },
     {
@@ -54,6 +60,7 @@ let stockProductos = [{
         tipo: "rifle",
         stock: 10,
         precio: 3500,
+        descipcion: "AWP Lightning",
         imageUrl: "../../src/multimedia/images/shop/awp-lightning-fn.png",
     },
     {
@@ -61,6 +68,7 @@ let stockProductos = [{
         tipo: "pistola",
         stock: 10,
         precio: 1500,
+        descipcion: "Desert Kumicho",
         imageUrl: "../../src/multimedia/images/shop/desert-kumicho-fn.png",
     },
     {
@@ -68,6 +76,7 @@ let stockProductos = [{
         tipo: "rifle",
         stock: 10,
         precio: 800,
+        descipcion: "Famas Commen",
         imageUrl: "../../src/multimedia/images/shop/famas-commem-fn.png",
     },
     {
@@ -75,6 +84,7 @@ let stockProductos = [{
         tipo: "pistola",
         stock: 10,
         precio: 1100,
+        descipcion: "Glock Vogue",
         imageUrl: "../../src/multimedia/images/shop/glock-vogue.mw_.png",
     },
     {
@@ -82,13 +92,15 @@ let stockProductos = [{
         tipo: "cuchillo",
         stock: 10,
         precio: 5500,
+        descipcion: "Bayonet Ultraviolet",
         imageUrl: "../../src/multimedia/images/shop/knife-bayonet-ultraviolet-ww.png",
     },
     {
         id: 12,
-        tipo: "cuchillo",
+        tipo: "rifle",
         stock: 10,
         precio: 2500,
+        descipcion: "AK emerald",
         imageUrl: "../../src/multimedia/images/shop/ak47-emerald-fn.png",
     },
     {
@@ -96,6 +108,7 @@ let stockProductos = [{
         tipo: "cuchillo",
         stock: 10,
         precio: 6500,
+        descipcion: "Falchion Marble",
         imageUrl: "../../src/multimedia/images/shop/knife-falchion-marble-fn.png",
     },
     {
@@ -103,13 +116,15 @@ let stockProductos = [{
         tipo: "cuchillo",
         stock: 10,
         precio: 2500,
+        descipcion: "Flip Scorched",
         imageUrl: "../../src/multimedia/images/shop/knife-flip-scorched-ww.png",
     },
     {
         id: 15,
-        tipo: "rifle",
+        tipo: "cuchillo",
         stock: 10,
         precio: 6400,
+        descipcion: "Flip Ultraviolet",
         imageUrl: "../../src/multimedia/images/shop/knife-flip-ultraviolet-ww.png",
     },
     {
@@ -117,6 +132,7 @@ let stockProductos = [{
         tipo: "cuchillo",
         stock: 10,
         precio: 2500,
+        descipcion: "Flip Ultraviolet",
         imageUrl: "../../src/multimedia/images/shop/knife-flip-ultraviolet-ww.png",
     },
     {
@@ -124,6 +140,7 @@ let stockProductos = [{
         tipo: "cuchillo",
         stock: 10,
         precio: 2500,
+        descipcion: "Gut Damascus",
         imageUrl: "../../src/multimedia/images/shop/knife-gut-damascus-ft.png",
     },
     {
@@ -131,6 +148,7 @@ let stockProductos = [{
         tipo: "rifle",
         stock: 10,
         precio: 2500,
+        descipcion: "M4A4 Desolate",
         imageUrl: "../../src/multimedia/images/shop/m4a4-desolate-fn.png",
     },
     {
@@ -138,6 +156,7 @@ let stockProductos = [{
         tipo: "smg",
         stock: 10,
         precio: 2500,
+        descipcion: "MAC10 Neonrider",
         imageUrl: "../../src/multimedia/images/shop/mac10-neonrider-fn.png",
     },
     {
@@ -145,18 +164,21 @@ let stockProductos = [{
         tipo: "smg",
         stock: 10,
         precio: 2500,
+        descipcion: "MAG7 Monstercall",
         imageUrl: "../../src/multimedia/images/shop/mag7-monstercall-bs.png",
     }, {
         id: 21,
         tipo: "pistola",
         stock: 10,
         precio: 2500,
+        descipcion: "USP Guardian",
         imageUrl: "../../src/multimedia/images/shop/usps-guardian-fn.png",
     }, {
         id: 22,
         tipo: "pistola",
         stock: 10,
         precio: 2500,
+        descipcion: "USP Stanless",
         imageUrl: "../../src/multimedia/images/shop/usps-stainless-bs.png",
     }
 ]
@@ -182,14 +204,21 @@ function renderizar(stockProductos) {
                         <div class="card product__card" style="width: 18rem;">
                             <img src="${prod.imageUrl}" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">${prod.tipo}</h5>
+                                <h5 class="card-title">${prod.descipcion}</h5>
                                 <p class="card-text">$ ${prod.precio}</p>
-                                <a href="#" class="btn btn-primary">Agregar al carrito</a>
+                                <button id="agregar${prod.id}" class="button__buy">Agregar <i class="fa-solid fa-cart-plus"></i></button>
                             </div>
                         </div>
                     </div>
                     `
         listaProductos.innerHTML += productosHTML;
+        /* A cada producto le agrego el event listener con el ID del producto que es único */
+        
+        const buttonAddToCart = document.getElementById("agregar1")
+        buttonAddToCart.addEventListener("click", ()=>{
+            addToCart(prod.id)
+        })
+
 
     }
 }
@@ -199,6 +228,11 @@ function renderizar(stockProductos) {
 
 renderizar(stockProductos)
 
+
+
+
+/****************** Filtros *************************/
+
 function applyFilter(productType) {
 
     let showOnlyType = stockProductos.filter(producto => producto.tipo === productType)
@@ -207,17 +241,14 @@ function applyFilter(productType) {
 
 }
 
+/* Assign filters */
 
-/****************** Filtros *************************/
-
-/* Ak Filter */
 let rifleFilter = document.getElementById("rifle-filter")
 let pistolFilter = document.getElementById("pistol-filter")
 let smgFilter = document.getElementById("smg-filter")
 let knifeFilter = document.getElementById("knife-filter")
 let allFilter = document.getElementById("all-filter")
 
-/* Assign funtion */
 
 /* Specific */
 
@@ -229,3 +260,16 @@ knifeFilter.addEventListener("click", () => applyFilter("cuchillo"))
 /* All */
 
 allFilter.addEventListener("click", () => renderizar(stockProductos))
+
+
+/* Cart funtions y varibles */
+
+let carrito = [];
+
+const addToCart = (prodId) => {
+
+    const item = stockProductos.find((prod) => prod.id === prodId)
+    carrito.push(item)
+    console.log(carrito)
+
+}

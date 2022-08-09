@@ -6,14 +6,16 @@
     -webkit-border-radius: 15px;
     border-radius: 15px;
     background-color: $color-second;
-
-
-
+    width: 65%;
 
     .product__card {
         &:hover {
             -webkit-box-shadow: 5px 5px 15px 5px $color-shadow;
             box-shadow: 5px 5px 15px 5px $color-shadow;
+        }
+
+        .button__buy{
+            cursor: pointer;
         }
     }
 }
@@ -23,7 +25,7 @@
 .filtros__conteiner {
     -webkit-border-radius: 15px;
     padding: 10px;
-    width: 300px;
+    width: 25%;
     border-radius: 15px;
     background-color: $color-main;
     margin-right: 5px;
@@ -37,6 +39,7 @@
 
         .button__filter {
             color: $color-shadow;
+            width: 80%;
             font-size: 13px;
             line-height: 15px;
             padding: 16px;
@@ -51,8 +54,9 @@
             display: inline-block;
 
             &:hover {
-                background: #1C6EA4;
-
+                background: $color-shadow;
+                color: black;
+                
             }
 
         }

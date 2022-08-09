@@ -48,29 +48,6 @@ a {
   font-size: 18px;
 }
 
-.h__hero {
-  font-family: "Secular One", sans-serif;
-  font: 400;
-  font-size: 60px;
-}
-
-.h__title {
-  font-family: "Secular One", sans-serif;
-  font: 400;
-  font-size: 40px;
-}
-
-.h__subt {
-  font-family: "Caveat", cursive;
-  font: "Caveat", cursive;
-  font-size: 40px;
-}
-
-.p__text {
-  font: 400;
-  font-size: 20px;
-}
-
 /* laptop large or big screens*/
 .animate__animated.animate__bounceInDown {
   --animate-duration: 4s;
@@ -87,6 +64,7 @@ a {
   -webkit-border-radius: 15px;
   border-radius: 15px;
   background-color: rgb(3, 54, 73);
+  width: 65%;
 }
 .tienda__conteiner .product__card:hover {
   -webkit-box-shadow: 5px 5px 15px 5px rgb(232, 221, 203);
@@ -96,7 +74,7 @@ a {
 .filtros__conteiner {
   -webkit-border-radius: 15px;
   padding: 10px;
-  width: 300px;
+  width: 25%;
   border-radius: 15px;
   background-color: rgb(3, 22, 52);
   margin-right: 5px;
@@ -109,6 +87,7 @@ a {
 }
 .filtros__conteiner li .button__filter {
   color: rgb(232, 221, 203);
+  width: 80%;
   font-size: 13px;
   line-height: 15px;
   padding: 16px;
@@ -123,7 +102,8 @@ a {
   display: inline-block;
 }
 .filtros__conteiner li .button__filter:hover {
-  background: #1C6EA4;
+  background: rgb(232, 221, 203);
+  color: black;
 }
 
 .header {
@@ -201,6 +181,10 @@ a {
     width: 30px;
     height: 30px;
   }
+}
+
+.cart__conteiner {
+  border: 1px solid #a4431c;
 }
 
 /* Componentes */
