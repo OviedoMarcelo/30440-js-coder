@@ -189,6 +189,7 @@ let stockProductos = [{
 
 /* funtion renderizar */
 
+
 function renderizar(stockProductos) {
 
     /* Siempre limpio pantalla para reutilizar en los filtros */
@@ -197,31 +198,30 @@ function renderizar(stockProductos) {
     listaProductos.innerHTML = "";
 
     /* Recorro el array de productos para mostrar */
-    for (const prod of stockProductos) {
-
+    stockProductos.forEach(prod => {
         let productosHTML = `
                     <div class="col">
                         <div class="card product__card" style="width: 18rem;">
-                            <img src="${prod.imageUrl}" class="card-img-top" alt="...">
+                            <img src="${prod.imageUrl}" class="card-img-top" alt="${prod.descipcion}">
                             <div class="card-body">
                                 <h5 class="card-title">${prod.descipcion}</h5>
                                 <p class="card-text">$ ${prod.precio}</p>
-                                <button id="agregar${prod.id}" class="button__buy">Agregar <i class="fa-solid fa-cart-plus"></i></button>
+                                <button id="item${prod.id}">Agregar</button>
                             </div>
                         </div>
                     </div>
                     `
-        listaProductos.innerHTML += productosHTML;
+        listaProductos.append(productosHTML)
         /* A cada producto le agrego el event listener con el ID del producto que es único */
-        
-        const buttonAddToCart = document.getElementById("agregar1")
-        buttonAddToCart.addEventListener("click", ()=>{
-            addToCart(prod.id)
-        })
-
-
+        console.log(document.getElementById(`item${prod.id}`))
+        const buttonAddToCart = document.getElementById(`item${prod.id}`)
+        console.log(prod.id)
+        buttonAddToCart.addEventListener("click", () => addToCart(prod.id))
     }
+    )
+
 }
+
 
 /* Ejecuto render inicial de todos los productos */
 
@@ -236,7 +236,7 @@ renderizar(stockProductos)
 function applyFilter(productType) {
 
     let showOnlyType = stockProductos.filter(producto => producto.tipo === productType)
-    console.log(showOnlyType)
+    /* console.log(showOnlyType) */
     renderizar(showOnlyType)
 
 }
@@ -266,10 +266,16 @@ allFilter.addEventListener("click", () => renderizar(stockProductos))
 
 let carrito = [];
 
-const addToCart = (prodId) => {
+function addToCart(prodId) {
+    let item = stockProductos.find(prod => prod.id === prodId)
+    console.log(item)
+    carrito.push(item)
+    
+}
 
+/* const addToCart = (prodId) => {
     const item = stockProductos.find((prod) => prod.id === prodId)
     carrito.push(item)
     console.log(carrito)
 
-}
+} */
