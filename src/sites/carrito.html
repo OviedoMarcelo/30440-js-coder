@@ -57,9 +57,11 @@
                             <a class="nav-link" href="#">Contactanos</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#">
-                                <img src="../multimedia/images/icons/carro.png" alt="carrrito de compras"
-                                    class="active__menu carro__compra">
+                            <a href="./carrito.html">
+                                <div>
+                                    <img src="../multimedia/images/icons/carro.png" alt="carrrito de compras"
+                                        class="active__menu carro__compra"><span id="contador-carrito"></span>
+                                </div>
                             </a>
                         </li>
                     </ul>
@@ -71,33 +73,33 @@
     <!-- ----------------------------- Header End------------------------------ -->
 
     <!-- ----------------------------- Main Start------------------------------ -->
-<main class="main">
-    <div class="container-fluid cart__conteiner">
-        <div class="row">
-            <!-- Lista de items agregados -->
-            <div id="item-cart" class="col-sm-8 row">
+    <main class="main">
+        <div class="container-fluid cart__conteiner">
+            <div class="row">
+                <!-- Lista de items agregados -->
+                <div id="item-cart" class="col-sm-8 row">
+
+
+                </div>
+                <!-- Resumen del carrito -->
+                <aside class="col-sm-4">
+                    <h2>Carrito</h2>
+                    <!-- elementos del carrito -->
+                    <ul id="carrito-contenedor" class="list-group">
+
+                    </ul>
+                    <hr>
+                    <!-- Precio total -->
+                    <p class="text-right">Total: <span id="total"></span></p>
+                    <button id="boton-vaciar" class="btn btn-danger"> Vaciar</button>
+
+                </aside>
 
 
             </div>
-            <!-- Resumen del carrito -->
-            <aside class="col-sm-4">
-                <h2>Carrito</h2>
-                <!-- elementos del carrito -->
-                <ul id="carrito" class="list-group">
-
-                </ul>
-                <hr>
-                <!-- Precio total -->
-                <p class="text-right">Total: <span id="total"></span></p>
-                <button id="boton-vaciar" class="btn btn-danger"> Vaciar</button>
-
-            </aside>
-
-
         </div>
-    </div>
-    </div>
-</main>
+        </div>
+    </main>
 
     <!-- ----------------------------- Main End------------------------------ -->
 

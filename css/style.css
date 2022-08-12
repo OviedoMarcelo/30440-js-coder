@@ -64,11 +64,15 @@ a {
   -webkit-border-radius: 15px;
   border-radius: 15px;
   background-color: rgb(3, 54, 73);
-  width: 65%;
+  width: 70%;
+  justify-content: space-between;
 }
 .tienda__conteiner .product__card:hover {
   -webkit-box-shadow: 5px 5px 15px 5px rgb(232, 221, 203);
   box-shadow: 5px 5px 15px 5px rgb(232, 221, 203);
+}
+.tienda__conteiner .product__card .button__item {
+  cursor: pointer;
 }
 
 .filtros__conteiner {

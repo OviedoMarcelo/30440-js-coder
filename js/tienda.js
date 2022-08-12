@@ -185,10 +185,28 @@ let stockProductos = [{
 
 
 
-/* ---------------- Listar productos en la web--------------- */
+/****************************** Render principal de la tienda **************************************/
+
+/* Subo esto del carrito arriba para que funciona desde el 
+principio el contador del carrito*/
+
+let contadorCarrito =document.getElementById("contador-carrito");
+let carrito = [];
+contadorCarrito.innerText = carrito.length
+
+
+
+/* Funcionalidad de agregar botón */
+
+function addToCart(prodId) {
+
+    const item = stockProductos.find((prod) => prod.id === prodId)
+    carrito.push(item)
+    contadorCarrito.innerText = carrito.length
+
+}
 
 /* funtion renderizar */
-
 
 function renderizar(stockProductos) {
 
@@ -203,35 +221,45 @@ function renderizar(stockProductos) {
                     <div class="col">
                         <div class="card product__card" style="width: 18rem;">
                             <img src="${prod.imageUrl}" class="card-img-top" alt="${prod.descipcion}">
-                            <div class="card-body">
+                            <div class="card-body justify-content-evenly">
                                 <h5 class="card-title">${prod.descipcion}</h5>
                                 <p class="card-text">$ ${prod.precio}</p>
-                                <button id="item${prod.id}">Agregar</button>
+                                <button class="button__item" marcador="${prod.id}">Agregar <i class="fa-solid fa-cart-shopping"></i></i></button>
                             </div>
                         </div>
                     </div>
                     `
-        listaProductos.append(productosHTML)
+        listaProductos.innerHTML += productosHTML;
         /* A cada producto le agrego el event listener con el ID del producto que es único */
-        console.log(document.getElementById(`item${prod.id}`))
-        const buttonAddToCart = document.getElementById(`item${prod.id}`)
-        console.log(prod.id)
-        buttonAddToCart.addEventListener("click", () => addToCart(prod.id))
-    }
-    )
+        /* console.log(document.getElementById(`item${prod.id}`)) */
+    })
+    const buttonAddToCart = [...document.getElementsByClassName("button__item")];
+    console.log(buttonAddToCart)
+    buttonAddToCart.forEach(button => button.addEventListener("click", (e) => {
+        addToCart(parseInt(e.target.getAttribute("marcador")))
+    }))
+
 
 }
 
 
 /* Ejecuto render inicial de todos los productos */
 
-
 renderizar(stockProductos)
 
 
 
 
-/****************** Filtros *************************/
+
+
+
+
+
+
+
+
+
+/****************************** Filters ************ **************************/
 
 function applyFilter(productType) {
 
@@ -241,7 +269,7 @@ function applyFilter(productType) {
 
 }
 
-/* Assign filters */
+/* Assign button filters */
 
 let rifleFilter = document.getElementById("rifle-filter")
 let pistolFilter = document.getElementById("pistol-filter")
@@ -250,7 +278,7 @@ let knifeFilter = document.getElementById("knife-filter")
 let allFilter = document.getElementById("all-filter")
 
 
-/* Specific */
+/* Specific button filters */
 
 rifleFilter.addEventListener("click", () => applyFilter("rifle"))
 pistolFilter.addEventListener("click", () => applyFilter("pistola"))
@@ -262,20 +290,77 @@ knifeFilter.addEventListener("click", () => applyFilter("cuchillo"))
 allFilter.addEventListener("click", () => renderizar(stockProductos))
 
 
-/* Cart funtions y varibles */
 
-let carrito = [];
 
-function addToCart(prodId) {
-    let item = stockProductos.find(prod => prod.id === prodId)
-    console.log(item)
-    carrito.push(item)
-    
+
+
+
+
+
+
+
+
+
+
+
+
+/******************** Contenedor del Carrito y funciones **************************/
+
+
+let botonVaciar = document.getElementById("boton-vaciar");
+let contenedorCarrito = document.getElementById("carrito-contenedor");
+
+
+
+function deleteToCart(prodId) {
+
+    const item = carrito.find((prod) => prod.id === prodId);
+    const indice = carrito.indexOf(item);
+    carrito.splice(indice, 1)
+    actualizarCarrito()
+    contadorCarrito.innerText = carrito.length
+
 }
 
-/* const addToCart = (prodId) => {
-    const item = stockProductos.find((prod) => prod.id === prodId)
-    carrito.push(item)
-    console.log(carrito)
+function deleteAllCart(){
 
-} */
+    carrito.length
+    actualizarCarrito();
+    contadorCarrito.innerText = carrito.lengths
+}
+
+
+function actualizarCarrito() {
+
+    contenedorCarrito.innerHTML = "";
+    carrito.forEach((prod) => {
+
+
+            let carritoHTML = `
+                        <div class="card mb-3" style="max-width: 540px;">
+                            <div class="row g-0">
+                                <div class="col-md-4">
+                                    <img src="${prod.imageUrl}" class="img-fluid rounded-start" alt="${prod.descipcion}">
+                                </div>
+                                 <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">${prod.descipcion}</h5>
+                                        <p class="card-text">${prod.precio}</p>
+                                        <button class="button__delete" onclick="deleteToCart(${prod.id})">Agregar <i class="fa-solid fa-cart-shopping"></i></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
+        `
+            contenedorCarrito.innerHTML += carritoHTML;
+
+        }
+
+    )
+    contadorCarrito.innerText = carrito.length;
+}
+
+
+
+botonVaciar.addEventListener("click",() => actualizarCarrito())
+
