@@ -246,7 +246,7 @@ function renderizar(stockProductos) {
 
 /* Ejecuto render inicial de todos los productos */
 
-renderizar(stockProductos)
+/* renderizar(stockProductos) */
 
 
 
@@ -262,33 +262,33 @@ renderizar(stockProductos)
 
 /****************************** Filters ************ **************************/
 
-function applyFilter(productType) {
+/* function applyFilter(productType) {
 
     let showOnlyType = stockProductos.filter(producto => producto.tipo === productType)
-    /* console.log(showOnlyType) */
+    
     renderizar(showOnlyType)
 
-}
+} */
 
 /* Assign button filters */
 
-let rifleFilter = document.getElementById("rifle-filter")
+/* let rifleFilter = document.getElementById("rifle-filter")
 let pistolFilter = document.getElementById("pistol-filter")
 let smgFilter = document.getElementById("smg-filter")
 let knifeFilter = document.getElementById("knife-filter")
-let allFilter = document.getElementById("all-filter")
+let allFilter = document.getElementById("all-filter") */
 
 
 /* Specific button filters */
 
-rifleFilter.addEventListener("click", () => applyFilter("rifle"))
+/* rifleFilter.addEventListener("click", () => applyFilter("rifle"))
 pistolFilter.addEventListener("click", () => applyFilter("pistola"))
 smgFilter.addEventListener("click", () => applyFilter("smg"))
-knifeFilter.addEventListener("click", () => applyFilter("cuchillo"))
+knifeFilter.addEventListener("click", () => applyFilter("cuchillo")) */
 
 /* All */
 
-allFilter.addEventListener("click", () => renderizar(stockProductos))
+/* allFilter.addEventListener("click", () => renderizar(stockProductos)) */
 
 
 
@@ -319,7 +319,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     if(localStorage.getItem("carrito")){
         /* Si existe carrito actualizo */
         carrito = JSON.parse(localStorage.getItem("carrito"));
-        actualizarCarrito;
+        actualizarCarrito();
     }
 
 
@@ -330,6 +330,7 @@ function deleteToCart(prodId) {
     const item = carrito.find((prod) => prod.id === prodId);
     const indice = carrito.indexOf(item);
     carrito.splice(indice, 1)
+    localStorage.setItem("carrito", JSON.stringify(carrito))
     actualizarCarrito()
     contadorCarrito.innerText = carrito.length
 
@@ -346,6 +347,7 @@ function deleteAllCart(){
 function actualizarCarrito() {
 
     contenedorCarrito.innerHTML = "";
+
     carrito.forEach((prod) => {
 
 
@@ -359,7 +361,7 @@ function actualizarCarrito() {
                                     <div class="card-body">
                                         <h5 class="card-title">${prod.descipcion}</h5>
                                         <p class="card-text">${prod.precio}</p>
-                                        <button class="button__delete" onclick="deleteToCart(${prod.id})">Agregar <i class="fa-solid fa-cart-shopping"></i></i></button>
+                                        <button class="button__delete" onclick="deleteToCart(${prod.id})">Eliminar<i class="fa-solid fa-trash-can"></i></button>
                                     </div>
                                 </div>
                             </div>
