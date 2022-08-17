@@ -185,138 +185,29 @@ let stockProductos = [{
 
 
 
-/****************************** Render principal de la tienda **************************************/
+/****************************** Contador del carrito **************************************/
 
 /* Subo esto del carrito arriba para que funciona desde el 
 principio el contador del carrito*/
 
-let contadorCarrito =document.getElementById("contador-carrito");
+let contadorCarrito = document.getElementById("contador-carrito");
 let carrito = [];
 contadorCarrito.innerText = carrito.length
 
 
 
-/* Funcionalidad de agregar botón */
-
-function addToCart(prodId) {
-
-    const item = stockProductos.find((prod) => prod.id === prodId)
-    carrito.push(item)
-    contadorCarrito.innerText = carrito.length
-    localStorage.setItem("carrito", JSON.stringify(carrito))
-
-}
-
-/* funtion renderizar */
-
-function renderizar(stockProductos) {
-
-    /* Siempre limpio pantalla para reutilizar en los filtros */
-
-    let listaProductos = document.getElementById("productos-tienda");
-    listaProductos.innerHTML = "";
-
-    /* Recorro el array de productos para mostrar */
-    stockProductos.forEach(prod => {
-        let productosHTML = `
-                    <div class="col">
-                        <div class="card product__card" style="width: 18rem;">
-                            <img src="${prod.imageUrl}" class="card-img-top" alt="${prod.descipcion}">
-                            <div class="card-body justify-content-evenly">
-                                <h5 class="card-title">${prod.descipcion}</h5>
-                                <p class="card-text">$ ${prod.precio}</p>
-                                <button class="button__item" marcador="${prod.id}">Agregar <i class="fa-solid fa-cart-shopping"></i></i></button>
-                            </div>
-                        </div>
-                    </div>
-                    `
-        listaProductos.innerHTML += productosHTML;
-        /* A cada producto le agrego el event listener con el ID del producto que es único */
-        /* console.log(document.getElementById(`item${prod.id}`)) */
-    })
-    const buttonAddToCart = [...document.getElementsByClassName("button__item")];
-    console.log(buttonAddToCart)
-    buttonAddToCart.forEach(button => button.addEventListener("click", (e) => {
-        addToCart(parseInt(e.target.getAttribute("marcador")))
-    }))
-
-
-}
-
-
-/* Ejecuto render inicial de todos los productos */
-
-/* renderizar(stockProductos) */
-
-
-
-
-
-
-
-
-
-
-
-
-
-/****************************** Filters ************ **************************/
-
-/* function applyFilter(productType) {
-
-    let showOnlyType = stockProductos.filter(producto => producto.tipo === productType)
-    
-    renderizar(showOnlyType)
-
-} */
-
-/* Assign button filters */
-
-/* let rifleFilter = document.getElementById("rifle-filter")
-let pistolFilter = document.getElementById("pistol-filter")
-let smgFilter = document.getElementById("smg-filter")
-let knifeFilter = document.getElementById("knife-filter")
-let allFilter = document.getElementById("all-filter") */
-
-
-/* Specific button filters */
-
-/* rifleFilter.addEventListener("click", () => applyFilter("rifle"))
-pistolFilter.addEventListener("click", () => applyFilter("pistola"))
-smgFilter.addEventListener("click", () => applyFilter("smg"))
-knifeFilter.addEventListener("click", () => applyFilter("cuchillo")) */
-
-/* All */
-
-/* allFilter.addEventListener("click", () => renderizar(stockProductos)) */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/******************** Contenedor del Carrito y funciones **************************/
+/******************** Contenedor del Carrito y funciones de los mismos **************************/
 
 
 let botonVaciar = document.getElementById("boton-vaciar");
 let contenedorCarrito = document.getElementById("carrito-contenedor");
 let preciototalHTML = document.getElementById("precio-total")
-console.log("A")
 preciototalHTML.innerText = 0
 
+/* Espero que cargue el documento y si hay carrito en local storage lo cargo */
 
-document.addEventListener("DOMContentLoaded", ()=>{
-    if(localStorage.getItem("carrito")){
+document.addEventListener("DOMContentLoaded", () => {
+    if (localStorage.getItem("carrito")) {
         /* Si existe carrito actualizo */
         carrito = JSON.parse(localStorage.getItem("carrito"));
         actualizarCarrito();
@@ -325,6 +216,9 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
 })
 
+
+
+/* Funcion para eliminar elementos del carrito y actualizar el local store */
 function deleteToCart(prodId) {
 
     const item = carrito.find((prod) => prod.id === prodId);
@@ -336,13 +230,17 @@ function deleteToCart(prodId) {
 
 }
 
-function deleteAllCart(){
+/* Función para borrar todo del carrito */
 
-    carrito.length
+function deleteAllCart() {
+
+    carrito.length=0
     actualizarCarrito();
-    contadorCarrito.innerText = carrito.lengths
+    contadorCarrito.innerText = carrito.length
+    localStorage.removeItem('carrito');
 }
 
+/* Renderiza todo lo que hay en el carrito */
 
 function actualizarCarrito() {
 
@@ -372,11 +270,11 @@ function actualizarCarrito() {
         }
 
     )
+    /* Actualizo el contador del carrito */
     contadorCarrito.innerText = carrito.length;
-    preciototalHTML.innerText = carrito.reduce((acc,prod) => acc + prod.precio, 0)
+    /* Actualizo la suma total del carrito */
+    preciototalHTML.innerText = carrito.reduce((acc, prod) => acc + prod.precio, 0)
 }
 
 
-
-botonVaciar.addEventListener("click",() => actualizarCarrito())
-
+botonVaciar.addEventListener("click", () => deleteAllCart())

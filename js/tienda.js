@@ -184,15 +184,28 @@ let stockProductos = [{
 ]
 
 
+/******************** Contenedor del copntado del carrito y obtención de data del local **************************/
+
+
+let contadorCarrito = document.getElementById("contador-carrito");
+let carrito = [];
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    if (localStorage.getItem("carrito")) {
+        /* Si existe carrito actualizo */
+        carrito = JSON.parse(localStorage.getItem("carrito"));
+        contadorCarrito.innerText = carrito.length
+    }
+
+
+})
+
+
+
+
 
 /****************************** Render principal de la tienda **************************************/
-
-/* Subo esto del carrito arriba para que funciona desde el 
-principio el contador del carrito*/
-
-let contadorCarrito =document.getElementById("contador-carrito");
-let carrito = [];
-contadorCarrito.innerText = carrito.length
 
 
 
@@ -244,9 +257,10 @@ function renderizar(stockProductos) {
 }
 
 
-/* Ejecuto render inicial de todos los productos */
+/* Ejecuto render inicial de todos los productos y actualizo el valor del carrito*/
 
 renderizar(stockProductos)
+
 
 
 
@@ -289,92 +303,3 @@ knifeFilter.addEventListener("click", () => applyFilter("cuchillo"))
 /* All */
 
 allFilter.addEventListener("click", () => renderizar(stockProductos))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/******************** Contenedor del Carrito y funciones **************************/
-
-
-let botonVaciar = document.getElementById("boton-vaciar");
-let contenedorCarrito = document.getElementById("carrito-contenedor");
-let preciototalHTML = document.getElementById("precio-total")
-console.log("A")
-preciototalHTML.innerText = 0
-
-
-document.addEventListener("DOMContentLoaded", ()=>{
-    if(localStorage.getItem("carrito")){
-        /* Si existe carrito actualizo */
-        carrito = JSON.parse(localStorage.getItem("carrito"));
-        actualizarCarrito;
-    }
-
-
-})
-
-function deleteToCart(prodId) {
-
-    const item = carrito.find((prod) => prod.id === prodId);
-    const indice = carrito.indexOf(item);
-    carrito.splice(indice, 1)
-    actualizarCarrito()
-    contadorCarrito.innerText = carrito.length
-
-}
-
-function deleteAllCart(){
-
-    carrito.length
-    actualizarCarrito();
-    contadorCarrito.innerText = carrito.lengths
-}
-
-
-function actualizarCarrito() {
-
-    contenedorCarrito.innerHTML = "";
-    carrito.forEach((prod) => {
-
-
-            let carritoHTML = `
-                        <div class="card mb-3" style="max-width: 540px;">
-                            <div class="row g-0">
-                                <div class="col-md-4">
-                                    <img src="${prod.imageUrl}" class="img-fluid rounded-start" alt="${prod.descipcion}">
-                                </div>
-                                 <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title">${prod.descipcion}</h5>
-                                        <p class="card-text">${prod.precio}</p>
-                                        <button class="button__delete" onclick="deleteToCart(${prod.id})">Agregar <i class="fa-solid fa-cart-shopping"></i></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>    
-        `
-            contenedorCarrito.innerHTML += carritoHTML;
-
-        }
-
-    )
-    contadorCarrito.innerText = carrito.length;
-    preciototalHTML.innerText = carrito.reduce((acc,prod) => acc + prod.precio, 0)
-}
-
-
-
-botonVaciar.addEventListener("click",() => actualizarCarrito())
-
