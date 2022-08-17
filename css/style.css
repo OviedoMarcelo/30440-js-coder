@@ -64,7 +64,6 @@ a {
   -webkit-border-radius: 15px;
   border-radius: 15px;
   background-color: rgb(3, 54, 73);
-  width: 70%;
   justify-content: space-between;
 }
 .tienda__conteiner .product__card:hover {
@@ -78,10 +77,8 @@ a {
 .filtros__conteiner {
   -webkit-border-radius: 15px;
   padding: 10px;
-  width: 25%;
   border-radius: 15px;
   background-color: rgb(3, 22, 52);
-  margin-right: 5px;
 }
 .filtros__conteiner li {
   margin: 10px;
