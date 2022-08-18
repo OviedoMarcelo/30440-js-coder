@@ -65,6 +65,7 @@ a {
   border-radius: 15px;
   background-color: rgb(3, 54, 73);
   justify-content: space-between;
+  align-items: auto;
 }
 .tienda__conteiner .product__card:hover {
   -webkit-box-shadow: 5px 5px 15px 5px rgb(232, 221, 203);
@@ -72,6 +73,14 @@ a {
 }
 .tienda__conteiner .product__card .button__item {
   cursor: pointer;
+  background-color: rgb(232, 221, 203);
+  border-radius: 14%;
+  padding: 3%;
+}
+.tienda__conteiner .product__card .button__item:hover {
+  background-color: rgb(3, 54, 73);
+  color: white;
+  transform: scale(1.1);
 }
 
 .filtros__conteiner {

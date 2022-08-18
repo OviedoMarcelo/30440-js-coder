@@ -7,6 +7,7 @@
     border-radius: 15px;
     background-color: $color-second;
     justify-content: space-between;
+    align-items:auto;
 
     .product__card {
         &:hover {
@@ -16,6 +17,15 @@
 
         .button__item {
             cursor: pointer;
+            background-color: $color-shadow;
+            border-radius: 14%;
+            padding: 3%;
+
+            &:hover{
+                background-color: $color-second;
+                color: white;
+                transform: scale(1.1);
+            }
         }
     }
 }
