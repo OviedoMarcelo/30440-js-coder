@@ -234,10 +234,27 @@ function deleteToCart(prodId) {
 
 function deleteAllCart() {
 
-    carrito.length=0
-    actualizarCarrito();
-    contadorCarrito.innerText = carrito.length
-    localStorage.removeItem('carrito');
+    Swal.fire({
+        title: '¿Estas seguro que quieres eliminar todos los productos?',
+        text: "Recuerda que puedes eliminar algún item de forma individual",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, limpiar carrito'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            carrito.length = 0
+            actualizarCarrito();
+            contadorCarrito.innerText = carrito.length
+            localStorage.removeItem('carrito');
+            Swal.fire(
+                '¡Exitoso!',
+                'Hemos eliminado todos los productos del carrito.'
+            )
+        }
+    })
+
 }
 
 /* Renderiza todo lo que hay en el carrito */
