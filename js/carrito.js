@@ -200,9 +200,16 @@ contadorCarrito.innerText = carrito.length
 
 
 let botonVaciar = document.getElementById("boton-vaciar");
+let botonComprar = document.getElementById("boton-comprar");
 let contenedorCarrito = document.getElementById("carrito-contenedor");
 let preciototalHTML = document.getElementById("precio-total")
 preciototalHTML.innerText = 0
+
+/************ Event listeners****************** */
+
+botonVaciar.addEventListener("click", () => deleteAllCart())
+botonComprar.addEventListener("click", () => buyAll())
+
 
 /* Espero que cargue el documento y si hay carrito en local storage lo cargo */
 
@@ -210,56 +217,80 @@ document.addEventListener("DOMContentLoaded", () => {
     if (localStorage.getItem("carrito")) {
         /* Si existe carrito actualizo */
         carrito = JSON.parse(localStorage.getItem("carrito"));
-        actualizarCarrito();
+        updateCart();
     }
 
 
 })
 
-
+/* **************** Funciones************************** */
 
 /* Funcion para eliminar elementos del carrito y actualizar el local store */
 function deleteToCart(prodId) {
 
-    const item = carrito.find((prod) => prod.id === prodId);
-    const indice = carrito.indexOf(item);
-    carrito.splice(indice, 1)
-    localStorage.setItem("carrito", JSON.stringify(carrito))
-    actualizarCarrito()
-    contadorCarrito.innerText = carrito.length
+    Swal.fire({
+        title: '¿Estas seguro que no quieres comprar esta fantástica skin? 🤔',
+        showDenyButton: true,
+        showCancelButton: true,
+        confirmButtonText: 'Si, eliminar',
+        denyButtonText: `No, aún lo quiero`,
+    }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+            const item = carrito.find((prod) => prod.id === prodId);
+            const indice = carrito.indexOf(item);
+            carrito.splice(indice, 1)
+            localStorage.setItem("carrito", JSON.stringify(carrito))
+            updateCart()
+            contadorCarrito.innerText = carrito.length
+            Swal.fire('Eliminado correctamente! 😭', '', 'warning')
+        } else if (result.isDenied) {
+            Swal.fire('Sigue en el carrito 😄', '', 'success')
+        }
+    })
+
 
 }
 
 /* Función para borrar todo del carrito */
 
 function deleteAllCart() {
+    carrito.length == 0 ? (
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Parece que el carrito estaba vacío...😥​',
+            footer: '<a href="./tienda.html">¡Vamos a la tienda! 💸</a>'
+        })
 
-    Swal.fire({
-        title: '¿Estas seguro que quieres eliminar todos los productos?',
-        text: "Recuerda que puedes eliminar algún item de forma individual",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Si, limpiar carrito'
-    }).then((result) => {
-        if (result.isConfirmed) {
-            carrito.length = 0
-            actualizarCarrito();
-            contadorCarrito.innerText = carrito.length
-            localStorage.removeItem('carrito');
-            Swal.fire(
-                '¡Exitoso!',
-                'Hemos eliminado todos los productos del carrito.'
-            )
-        }
-    })
+    ) : (
+        Swal.fire({
+            title: '¿Estas seguro que quieres eliminar todos los productos?',
+            text: "Recuerda que puedes eliminar algún item de forma individual",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, limpiar carrito'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                carrito.length = 0
+                updateCart();
+                contadorCarrito.innerText = carrito.length
+                localStorage.removeItem('carrito');
+                Swal.fire(
+                    '¡Exitoso!',
+                    'Hemos eliminado todos los productos del carrito.'
+                )
+            }
+        })
+    )
 
 }
 
 /* Renderiza todo lo que hay en el carrito */
 
-function actualizarCarrito() {
+function updateCart() {
 
     contenedorCarrito.innerHTML = "";
 
@@ -293,5 +324,33 @@ function actualizarCarrito() {
     preciototalHTML.innerText = carrito.reduce((acc, prod) => acc + prod.precio, 0)
 }
 
+function buyAll() {
+    carrito.length == 0 ? (
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Parece que el carrito estaba vacío, pero eso lo podemos solucionar fácil​',
+            footer: '<a href="./tienda.html">¡Vamos a la tienda! 💸</a>'
+        })
 
-botonVaciar.addEventListener("click", () => deleteAllCart())
+    ) : (
+        fetch("https://ricardofort.herokuapp.com/")
+        .then((resp) => resp.json())
+        .then((data) => {
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Comprar realizada con éxito',
+                text: `Y como decía el comandante: ${data.frase}`,
+                showConfirmButton: false,
+                timer: 2500
+            })
+            carrito.length = 0
+            updateCart();
+            contadorCarrito.innerText = carrito.length
+            localStorage.removeItem('carrito');
+        })
+
+    )
+
+}

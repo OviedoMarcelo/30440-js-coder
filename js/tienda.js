@@ -209,7 +209,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-/* Funcionalidad de agregar botón */
+
+
 
 function addToCart(prodId) {
 
@@ -217,6 +218,21 @@ function addToCart(prodId) {
     carrito.push(item)
     contadorCarrito.innerText = carrito.length
     localStorage.setItem("carrito", JSON.stringify(carrito))
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 1700,
+        timerProgressBar: false ,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
+    Toast.fire({
+        icon: 'success',
+        title: 'Agregado al carrito'
+    })
 
 }
 
