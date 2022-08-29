@@ -6,11 +6,9 @@
     -webkit-border-radius: 15px;
     border-radius: 15px;
     background-color: $color-main;
-    justify-content:space-around;  
+    justify-content: space-around;
     overflow-y: scroll;
     max-height: 100vh;
-    
-
     .product__card {
         &:hover {
             -webkit-box-shadow: 5px 5px 15px 5px $color-shadow;
@@ -23,7 +21,7 @@
             border-radius: 14%;
             padding: 3%;
 
-            &:hover{
+            &:hover {
                 background-color: $color-second;
                 color: white;
                 transform: scale(1.1);
