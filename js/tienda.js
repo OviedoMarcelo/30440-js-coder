@@ -7,7 +7,7 @@ let seguirComprando = true;
 
 /* Arreglo de tipo de armas */
 
-let stockProductos = [{
+/* let stockProductos = [{
         id: 1,
         tipo: "rifle",
         stock: 10,
@@ -181,15 +181,17 @@ let stockProductos = [{
         descipcion: "USP Stanless",
         imageUrl: "../../src/multimedia/images/shop/usps-stainless-bs.png",
     }
-]
+] */
+
 
 
 /******************** Contenedor del copntado del carrito y obtención de data del local **************************/
 
-
+let stockProductos = [];
 let contadorCarrito = document.getElementById("contador-carrito");
 let carrito = [];
 
+/* Contador de carrito y render principal */
 
 document.addEventListener("DOMContentLoaded", () => {
     if (localStorage.getItem("carrito")) {
@@ -197,7 +199,12 @@ document.addEventListener("DOMContentLoaded", () => {
         carrito = JSON.parse(localStorage.getItem("carrito"));
         contadorCarrito.innerText = carrito.length
     }
-
+    fetch("/data/prod.json")
+        .then((resp) => (resp.json()))
+        .then((productos) => {
+            stockProductos = productos;
+            renderizar(stockProductos)
+        })
 
 })
 
@@ -205,9 +212,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-/****************************** Render principal de la tienda **************************************/
-
-
+/****************************** Funciones **************************************/
 
 
 
@@ -223,7 +228,7 @@ function addToCart(prodId) {
         position: 'top-end',
         showConfirmButton: false,
         timer: 1700,
-        timerProgressBar: false ,
+        timerProgressBar: false,
         didOpen: (toast) => {
             toast.addEventListener('mouseenter', Swal.stopTimer)
             toast.addEventListener('mouseleave', Swal.resumeTimer)
@@ -264,7 +269,6 @@ function renderizar(stockProductos) {
         /* console.log(document.getElementById(`item${prod.id}`)) */
     })
     const buttonAddToCart = [...document.getElementsByClassName("button__item")];
-    console.log(buttonAddToCart)
     buttonAddToCart.forEach(button => button.addEventListener("click", (e) => {
         addToCart(parseInt(e.target.getAttribute("marcador")))
     }))
@@ -275,7 +279,7 @@ function renderizar(stockProductos) {
 
 /* Ejecuto render inicial de todos los productos y actualizo el valor del carrito*/
 
-renderizar(stockProductos)
+
 
 
 

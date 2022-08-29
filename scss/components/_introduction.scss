@@ -1,8 +1,0 @@
-.img__index {
-    height: auto;
-    width: 600px;
-    object-fit: cover;
-    @include breakpoint(xs){
-        width: 100vw;
-    }
-}

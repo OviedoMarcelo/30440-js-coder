@@ -5,9 +5,11 @@
 .tienda__conteiner {
     -webkit-border-radius: 15px;
     border-radius: 15px;
-    background-color: $color-second;
-    justify-content: space-between;
-    align-items:auto;
+    background-color: $color-main;
+    justify-content:space-around;  
+    overflow-y: scroll;
+    max-height: 100vh;
+    
 
     .product__card {
         &:hover {
@@ -36,7 +38,7 @@
     -webkit-border-radius: 15px;
     padding: 10px;
     border-radius: 15px;
-    background-color: $color-main;
+    background-color: $color-second;
 
     li {
         margin: 10px;

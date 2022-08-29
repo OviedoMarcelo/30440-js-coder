@@ -1,19 +1,21 @@
 $bg-color-general: black;
 
 /* Import font */
-@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Playfair+Display:wght@500&family=Secular+One&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;400&display=swap');
+
 
 /* Font family */
-$font-main: 'Secular One', sans-serif;
-$font-subt: 'Caveat', cursive;
-$font-text: 'Playfair Display', serif;
+$font-main: 'Roboto Mono', monospace;
+$font-subt: 'Roboto Mono', monospace;
+$font-text: 'Roboto Mono', monospace;
 /* Font width title */
-$font-title-w: 400;
+$font-title-w: 200;
 /* Font width paragraph */
-$font-p-w: 400;
+$font-p-w: 200;
 
 /* Colores */
-$color-main: rgb(3,22,52);
-$color-second: rgb(3,54,73);
-$color-third: rgb(205,179,128);
-$color-shadow: rgb(232,221,203)
+$color-main: rgb(40,40,40);
+$color-second: rgb(80, 78, 78);
+$color-third: rgb(254, 219, 57);
+$color-shadow: rgb(214, 28, 78);
