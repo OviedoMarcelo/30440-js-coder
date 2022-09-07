@@ -210,10 +210,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-
-
 /****************************** Funciones **************************************/
-
 
 
 
@@ -253,16 +250,17 @@ function renderizar(stockProductos) {
     /* Recorro el array de productos para mostrar */
     stockProductos.forEach(prod => {
         let productosHTML = `
-                    <div class="col">
-                        <div class="card product__card" style="width: 18rem;">
-                            <img src="${prod.imageUrl}" class="card-img-top" alt="${prod.descipcion}">
-                            <div class="card-body justify-content-evenly">
-                                <h5 class="card-title">${prod.descipcion}</h5>
-                                <p class="card-text">$ ${prod.precio}</p>
-                                <button class="button__item" marcador="${prod.id}">Agregar <i class="fa-solid fa-cart-shopping"></i></i></button>
-                            </div>
-                        </div>
-                    </div>
+        <div class="col">
+        <div class="card product__card" style="width: 18rem;">
+        <img src="${prod.imageUrl}" class="card-img-top" alt="${prod.descipcion}">
+        <div class="card-body justify-content-evenly">
+            <h5 class="card-title">${prod.descipcion}</h5>
+            <p class="card-text">$ ${prod.precio}</p>
+            <button class="button__item" marcador="${prod.id}">Agregar <i
+                    class="fa-solid fa-cart-shopping"></i></i></button>
+        </div>
+    </div>
+</div>
                     `
         listaProductos.innerHTML += productosHTML;
         /* A cada producto le agrego el event listener con el ID del producto que es único */

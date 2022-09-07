@@ -1,12 +1,16 @@
 /* Imports */
 /* Base */
 /* Reset */
+/* Import font */
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;400&display=swap");
+/* Font family */
+/* Font width title */
+/* Font width paragraph */
+/* Colores */
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;400&display=swap");
 * {
   margin: 0;
   padding: 0;
-  font-family: "Poppins", sans-serif;
-  font-weight: 200;
   box-sizing: border-box;
 }
 
@@ -14,21 +18,14 @@ html {
   scroll-behavior: smooth;
 }
 
-.disclaimer {
-  display: none;
-}
-
 body {
+  font-family: "Roboto Mono", monospace;
+  font-size: 16px;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-/* Import font */
-/* Font family */
-/* Font width title */
-/* Font width paragraph */
-/* Colores */
 h1,
 h2,
 h3,
@@ -48,6 +45,16 @@ a {
   font-size: 1.1em;
 }
 
+/* Publicidad hosting */
+.disclaimer {
+  display: none;
+}
+
+/* Import font */
+/* Font family */
+/* Font width title */
+/* Font width paragraph */
+/* Colores */
 /* laptop large or big screens*/
 .animate__animated.animate__bounceInDown {
   --animate-duration: 4s;
@@ -57,7 +64,9 @@ a {
 .rotate-scale-down {
   -webkit-animation: rotate-scale-down 0.65s linear 2s both;
   animation: rotate-scale-down 0.65s linear 2s both;
-} /* Sections*/
+}
+
+/* Sections*/
 /* Tienda CSS  */
 /* Tienda conteiner */
 .tienda__conteiner {

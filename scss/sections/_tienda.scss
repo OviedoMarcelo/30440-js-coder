@@ -9,6 +9,7 @@
     justify-content: space-around;
     overflow-y: scroll;
     max-height: 100vh;
+
     .product__card {
         &:hover {
             -webkit-box-shadow: 5px 5px 15px 5px $color-shadow;
@@ -70,3 +71,4 @@
         }
     }
 }
+
